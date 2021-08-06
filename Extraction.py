@@ -25,10 +25,12 @@ for news in all_news:
     news_author = news.find('span',{'class':'author'}).text.strip()#Author
     news_body = news.find('div',{'itemprop':'articleBody'}).text.strip()#Body
     anchor = news.find_all('a',{'class':'source'})
+    news_url = ''
     for link in anchor:
         if(link.get('href')!='#'):
             news_url = link.get('href')#News Source
     images = news.find_all('div',{'class':'news-card-image'})
+    news_images = ''
     for im in images:
         news_images = im.get('style')[23:-3]#Image url
     print('Headlines: ',news_headlines,'.\n','Description: ',news_body,'\n','Author- ',news_author,'\n','Source: ',news_url,'\n','Top Image link: ',news_images,'\n\n')
