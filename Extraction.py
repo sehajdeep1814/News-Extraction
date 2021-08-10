@@ -33,7 +33,17 @@ for news in all_news:
     news_images = ''
     for im in images:
         news_images = im.get('style')[23:-3]#Image url
-    print('Headlines: ',news_headlines,'.\n','Description: ',news_body,'\n','Author- ',news_author,'\n','Source: ',news_url,'\n','Top Image link: ',news_images,'\n\n')
+    news_headlines_1 = news_headlines.replace('.','').replace(',',"").split(' ')
+    news_body_1 = news_body.replace('.',' ').replace(',',"").split(" ")
+    max_occurance = []
+    for i in news_headlines_1:
+        if i not in ['a','an','the','in','is','of','on','to','for','after','I',"I'm",'be','he','she','they','him','her','are']:
+            max_occurance.append(news_body_1.count(i))
+        else:
+            max_occurance.append(0)
+    news_keyword = news_headlines_1[max_occurance.index(max(max_occurance))]# News Keyword
+    print('Headlines: ',news_headlines,'.\n','Description: ',news_body,'\n','Keyword- ',news_keyword,'\n','Author- ',news_author,'\n','Source: ',news_url,'\n','Top Image link: ',news_images,'\n\n')
+    
     
 
 all_categories = soup.find_all('a')
