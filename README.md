@@ -8,7 +8,7 @@ Extraction is the process of removing required data from a source. Here the sour
 I have written the source code in python with the help of some libraries and built-in functions. The libraries I've used are 'requests',to requests the access of the data from the news webpage URL and 'bs4 (BeautifulSoup4)', to parse the data in the required form. The source code can run on any IDE that supports python 3 and has the above libraries installed.
 
 # Code Output
-The output of the code displays the headlines, keyword, image URL, source URL, author, summary each news article on that web page and the links to the different categories of news on that webpage (national,sports,education etc).
+The output of the code displays the headlines, keyword, image URL, source URL, author, summary each news article on that web page and the links to the different categories of news on that webpage (national, sports, education etc).
 
 ![](Screenshot%20(5).png)
 
