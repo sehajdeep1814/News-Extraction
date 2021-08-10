@@ -10,7 +10,7 @@ I have written the source code in python with the help of some libraries and bui
 # Code Output
 The output of the code displays the headlines, keyword, image URL, source URL, author, summary each news article on that web page and the links to the different categories of news on that webpage (national,sports,education etc).
 
-
+![](Screenshot%20(5).png)
 
 # References
 To learn web scrapping, I had an access to a course on "My Captain" platform (https://app.mycaptain.in/). I also learnt image and source URL extraction from "CodeWithHarry"'s YouTube video on web scrapping (https://www.youtube.com/watch?v=uufDGjTuq34).
