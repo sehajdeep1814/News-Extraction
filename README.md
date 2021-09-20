@@ -15,7 +15,7 @@
 - 'requests' to requests the access of the data from the news webpage URL
 - 'bs4 (BeautifulSoup4)' to parse the data in the required form
 - 'flask' to build the web application
-- The source code can run on any IDE that supports python 3 and has the above libraries installed
+- The source code 'test.py' can run on any IDE that supports python 3 and has the above libraries installed
 -  You will also need a search engine to view the website
 
 # Code Output
