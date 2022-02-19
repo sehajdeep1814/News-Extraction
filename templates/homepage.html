@@ -1,60 +1,77 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> -->
+    <!-- CSS Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/main.css')}}"
+    />
+    <!-- Montserrat font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
     <title>News Extraction</title>
-</head>
+  </head>
 
-<body>
-    <style type="text/css">
-        body {
-            background: black !important;
-        }
-
-        /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
-    </style>
-    {% for i in range(news_length) %}
-    <div class="text-white">
-        <div class="container" style="width: 40rem;">
-            <div class="cardstack">
-                <div class="card text-white bg-dark mb-5 border-light mb-3 z-depth-1">
-                    <img src="{{data[4][i]}}"
-                        class="card-img-top" style="padding: 15px 15px;">
-                    <div class="card-content">
-                        <h3 class="card-title" style="padding: 15px 15px;">{{data[0][i]}}</h3>
-                        <p class="card-body">{{data[2][i]}}</p>
-                        <h6 class="card-author" style="padding: 15px 15px;">Author - {{data[1][i]}}</h6>
-                        <h6 class="card-keyword" style="padding: 15px 15px;">Keyword - {{data[5][i]}}</h6>
-                    </div>
-                    <div class="card-source">
-                        <a href="{{data[3][i]}}" class="card-link" style="padding: 15px 15px;">Read More</a>
-                    </div>
-                </div>
-            </div> 
+  <body>
+    <div id="news-container">
+      {% for i in range(news_length) %}
+      <div class="container">
+        <div class="card">
+          <div class="img-container">
+            <img src="{{data[4][i]}}" class="card-img-top" />
+          </div>
+          <div class="card-content">
+            <h3
+              class="card-title card-content-padding card-content-top-padding card-content-no-margin"
+            >
+              <a href="{{data[3][i]}}" target="_blank">{{data[0][i]}}</a>
+            </h3>
+            <p
+              class="card-body card-content-padding card-content-no-margin card-content-top-padding"
+            >
+              {{data[2][i]}}
+            </p>
+            <div class="card-footer">
+              <h6
+                class="card-author foot-content card-content-padding card-content-no-margin card-content-top-padding"
+              >
+                Author - {{data[1][i]}}
+              </h6>
+              <h6
+                class="card-keyword foot-content card-content-padding card-content-no-margin card-content-top-padding"
+              >
+                Keyword - {{data[5][i]}}
+              </h6>
+            </div>
+          </div>
         </div>
-        <!-- Optional JavaScript; choose one of the two! -->
+      </div>
+      <!-- Optional JavaScript; choose one of the two! -->
 
-        <!-- Option 1: Bootstrap Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-            crossorigin="anonymous"></script>
+      <!-- Option 1: Bootstrap Bundle with Popper -->
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"
+      ></script>
 
-        <!-- Option 2: Separate Popper and Bootstrap JS -->
-        <!--
+      <!-- Option 2: Separate Popper and Bootstrap JS -->
+      <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
     -->
+      {% endfor %}
     </div>
-    {% endfor %}
-
-</body>
-
+  </body>
 </html>

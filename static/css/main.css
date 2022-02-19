@@ -1,0 +1,97 @@
+body {
+  /* background-color: #6d435a; */
+  /* background-color: #e4dab9;  */
+  background-color: #fefaec;
+  /* background-color: #c69fcc; */
+}
+
+#news-container {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(3, 470px);
+  justify-content: space-between;
+}
+
+.text-white {
+  width: 33vw;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.1s;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.img-container {
+  width: 450px;
+  height: 300px;
+}
+
+.card {
+  width: 450px;
+  /* padding: 10px; */
+  border-radius: 10px;
+  margin: 10px;
+  transition: all 0.2s ease-in-out;
+  box-sizing: content-box;
+  box-shadow: 0px 0px 60px -5px rgba(0, 0, 0, 0.59);
+  -webkit-box-shadow: 0px 0px 60px -5px rgba(0, 0, 0, 0.59);
+  -moz-box-shadow: 0px 0px 60px -5px rgba(0, 0, 0, 0.59);
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.59);
+  -webkit-box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.59);
+  -moz-box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.59);
+}
+
+.card-content-no-margin {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.card-title {
+  font-family: "Helvetica", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.5rem;
+  background-color: #fefaec;
+}
+
+.card-content-padding {
+  padding: 0 10px 0 10px;
+}
+
+.card-img-top {
+  width: 450px;
+  height: 300px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+}
+
+.card-content-top-padding {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.card-body {
+  font-family: "Lato", sans-serif;
+  background-color: #f38181;
+  /* color: #6d435a; */
+  color: #fff;
+  font-weight: 700;
+}
+
+.card-footer {
+  color: #fff;
+  background-color: #625772;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.foot-content {
+  font-family: "Montserrat", sans-serif;
+}
