@@ -31,6 +31,7 @@ news_url = []
 news_keyword = []
 common_words = []
 
+# Adding 3000 common words in English in the common_words list
 with open("words.txt") as file:
     for words in file.readlines():
         common_words.append(words[:-1])
