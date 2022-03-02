@@ -1,15 +1,12 @@
 body {
-  /* background-color: #6d435a; */
-  /* background-color: #e4dab9;  */
   background-color: #fefaec;
-  /* background-color: #c69fcc; */
 }
 
 #news-container {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: repeat(3, 470px);
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .text-white {
