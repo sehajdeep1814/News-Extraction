@@ -1,5 +1,5 @@
 
-#News- Extractioin
+#News- Extraction
 
 # Step 0: Importing packages
 
