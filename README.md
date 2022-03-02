@@ -26,9 +26,9 @@
 - After running the code, the code will host a server of a webpage which has the code output
 - The webpage is written in HTML and CSS
 
-![](<Screenshot%20(5).png>)
+![Screenshot 1](<./screenshots/Screenshot%20(4).png>)
 
-![](<Screenshot%20(4).png>)
+![Screenshot 1](<./screenshots/Screenshot%20(5).png>)
 
 # References
 
