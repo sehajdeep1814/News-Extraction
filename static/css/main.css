@@ -1,5 +1,8 @@
 body {
   background-color: #fefaec;
+  background-image: url('../images/bg-photo.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 #news-container {
