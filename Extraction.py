@@ -23,11 +23,54 @@ soup = BeautifulSoup(content, 'html.parser')
 
 all_news = soup.find_all('div', {'class': 'news-card z-depth-1'})
 
-news_headlines = []
-news_author = []
-news_body = []
-news_images = []
-news_url = []
+class News:
+    def __init__(self, tag, attribute):
+        self.items = []
+        self.tag = tag
+        self.attribute = attribute
+
+    def add(self, news):
+        for single_news in news:
+            self.items.append(single_news.find(self.tag, self.attribute).text.strip())
+
+    def addURLs(self, news):
+        for single_news in news:
+            anchor = single_news.find(self.tag, self.attribute)
+            if (anchor == None):
+                self.items.append('')
+            else:
+                self.items.append(anchor.get('href'))
+
+    def addImages(self, news):
+        for single_news in news:
+            image = single_news.find(self.tag, self.attribute)
+            self.items.append(image.get('style')[23:-3])
+
+    @classmethod
+    def generate_keyword(self, headlines, bodies, common_words):
+        
+        
+        return self.items
+
+        
+
+
+
+headlines = News('span', {'itemprop': 'headline'})
+headlines.add(all_news)
+
+authors = News('span', {'class': 'author'})
+authors.add(all_news)
+
+bodies = News('div', {'itemprop': 'articleBody'})
+bodies.add(all_news)
+
+urls = News('a', {'class': 'source'})
+urls.addURLs(all_news)
+
+images = News('div', {'class': 'news-card-image'})
+images.addImages(all_news)
+
 news_keyword = []
 common_words = []
 
@@ -36,43 +79,19 @@ with open("words.txt") as file:
     for words in file.readlines():
         common_words.append(words[:-1])
 
-
-for news in all_news:
-
-    headline = news.find('span', {'itemprop': 'headline'}).text.strip()
-    news_headlines.append(headline)  # Headline
-
-    news_author.append(
-        news.find('span', {'class': 'author'}).text.strip())  # Author
-
-    body = news.find('div', {'itemprop': 'articleBody'}).text.strip()
-    news_body.append(body)  # Body
-
-    anchor = news.find('a', {'class': 'source'})
-    if(anchor != None):
-        news_url.append(anchor.get('href'))  # News Source
-    else:
-        news_url.append('')
-
-    images = news.find('div', {'class': 'news-card-image'})
-    news_images.append(images.get('style')[23:-3])  # Image url
-
-    news_headlines_1 = headline.replace('.', '').replace(',', "").split(' ')
-
-    news_body_1 = body.replace('.', ' ').replace(',', "").split(" ")
-
+for i in range(len(headlines.items)):
     max_occurance = []
-    for i in news_headlines_1:
-        # if i not in ['a', 'an', 'the', 'in', 'is', 'of', 'my', 'no', 'yes', 'on', 'to', 'for', 'it', 'after', 'I', "I'm", 'be', 'he', 'she', 'are', 'they', 'him', 'her']:
-        if i not in common_words:
-            max_occurance.append(news_body_1.count(i))
+    headlines_words = headlines.items[i].replace('.', '').replace(',', '').split(' ')
+    bodies_words = bodies.items[i].replace('.', '').replace(',', '').split(' ')
+
+    for word in headlines_words:
+        if word not in common_words:
+            max_occurance.append(bodies.items.count(word))
         else:
             max_occurance.append(0)
+    
+    news_keyword.append(headlines_words[max_occurance.index(max(max_occurance))])
 
-    news_keyword.append(news_headlines_1[max_occurance.index(
-        max(max_occurance))])  # News Keyword
-
-
-data = [news_headlines, news_author, news_body,
-        news_url, news_images, news_keyword]
+data = [headlines.items, authors.items, bodies.items,
+        urls.items, images.items, news_keyword]
 news_length = len(data[0])
