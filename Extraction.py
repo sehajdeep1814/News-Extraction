@@ -46,14 +46,6 @@ class News:
             image = single_news.find(self.tag, self.attribute)
             self.items.append(image.get('style')[23:-3])
 
-    @classmethod
-    def generate_keyword(self, headlines, bodies, common_words):
-        
-        
-        return self.items
-
-        
-
 
 
 headlines = News('span', {'itemprop': 'headline'})
