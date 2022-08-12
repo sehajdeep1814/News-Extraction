@@ -3,13 +3,57 @@ body {
   background-image: url('../images/bg-photo.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
+  margin: 0;
+}
+
+.nav-bar {
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: antiquewhite;
+  height: 65px;
+  display: flex;
+  align-items: center;
+}
+
+.links-for-nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  list-style-type: none;
+}
+
+.links-for-nav li {
+  display: inline;
+}
+
+.nav-links {
+  text-decoration: none;
+  background-color: #fefaec;
+  color: #625772;
+  font-family: "Helvetica", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 10px;
+  transition: all 0.25s;
+}
+
+.nav-links:hover {
+  text-decoration: none;
+  background-color: #625772;
+  color: #fefaec;
+  cursor: pointer;
 }
 
 #news-container {
+  z-index: 1;
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: repeat(3, 470px);
   justify-content: space-evenly;
+  margin-top: 100px;
 }
 
 .text-white {

@@ -1,0 +1,4 @@
+# Jetbrains IDE configs
+.idea/
+*.zip
+__pycache__/

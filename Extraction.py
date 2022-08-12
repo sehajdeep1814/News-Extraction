@@ -2,21 +2,22 @@
 #News- Extraction
 
 # Step 0: Importing packages
+from typing import Any
 
 import requests
 
 from bs4 import BeautifulSoup
 
 categories = {
-    "all News": "",
-    "india": "national",
-    "business": "business",
-    "sports": "sports",
-    "world": "world",
-    "politics": "politics",
-    "technology": "technology",
-    "entertainment": "entertainment",
-    "science": "science",
+    "Home": "",
+    "India": "national",
+    "Business": "business",
+    "Sports": "sports",
+    "World": "world",
+    "Politics": "politics",
+    "Technology": "technology",
+    "Entertainment": "entertainment",
+    "Science": "science",
 }
 
 common_words = []
@@ -35,7 +36,7 @@ class News:
         for single_news in news:
             self.items.append(single_news.find(self.tag, self.attribute).text.strip())
 
-    def addURLs(self, news):
+    def add_urls(self, news):
         for single_news in news:
             anchor = single_news.find(self.tag, self.attribute)
             if (anchor == None):
@@ -43,7 +44,7 @@ class News:
             else:
                 self.items.append(anchor.get('href'))
 
-    def addImages(self, news):
+    def add_images(self, news):
         for single_news in news:
             image = single_news.find(self.tag, self.attribute)
             self.items.append(image.get('style')[23:-3])
@@ -52,6 +53,7 @@ url = ""
 news_categories = {}
 for label, link in categories.items():
     url = f"https://www.inshorts.com/en/read/{link}"
+    print(url)
 
     # Step 1: GET HTML using requests
 
@@ -80,10 +82,10 @@ for label, link in categories.items():
     bodies.add(all_news)
 
     urls = News('a', {'class': 'source'})
-    urls.addURLs(all_news)
+    urls.add_urls(all_news)
 
     images = News('div', {'class': 'news-card-image'})
-    images.addImages(all_news)
+    images.add_images(all_news)
 
     news_keyword = []
 
@@ -104,4 +106,4 @@ for label, link in categories.items():
 
     data = [headlines.items, authors.items, bodies.items,
             urls.items, images.items, news_keyword]
-    news_categories[link] = data;
+    news_categories[link] = data

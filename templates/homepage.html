@@ -19,6 +19,13 @@
   </head>
 
   <body>
+    <nav class="nav-bar">
+      <ul class="links-for-nav">
+        {% for label, link in categories.items() %}
+        <li><a href="{{link}}" class="nav-links">{{label}}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
     <div id="news-container">
       {% for i in range(news_length) %}
       <div class="container">
