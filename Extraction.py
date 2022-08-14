@@ -53,7 +53,7 @@ url = ""
 news_categories = {}
 for label, link in categories.items():
     url = f"https://www.inshorts.com/en/read/{link}"
-    print(url)
+    print(link)
 
     # Step 1: GET HTML using requests
 
